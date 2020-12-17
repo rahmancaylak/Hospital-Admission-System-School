@@ -13,6 +13,6 @@ namespace HospitalAdmissionSystem
         public string doctorName;
         public string doctorSurname;
         public int doctorPhoneNumber;
-        public string doctorDepartment;
+        public int departmentId;
     }
 }

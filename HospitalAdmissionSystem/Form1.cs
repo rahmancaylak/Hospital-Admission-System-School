@@ -13,11 +13,15 @@ namespace HospitalAdmissionSystem
     public partial class Form1 : Form
     {
         List<Patients> patientList = new List<Patients>(); // This list hold patient information.
-        DataView dataView;
-
         public Form1()
         {
             InitializeComponent();
+        }
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            cbDoctorName.SelectedIndex = 0;
+            cbDoctorDepartment.SelectedIndex = 0;
+            cbPatientGender.SelectedIndex = 0;
         }
         private int getLastId(bool _inc = false) //This function return increase id automatically.
         {
@@ -43,25 +47,33 @@ namespace HospitalAdmissionSystem
         }
         private void buttonRegister_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(tbPatientCivilizationNumber.Text) || string.IsNullOrEmpty(tbPatientAge.Text) || string.IsNullOrEmpty(tbPatientName.Text) || string.IsNullOrEmpty(tbPatientSurname.Text))
+            {
+                MessageBox.Show("Please don't left empty places");
+            }
+            else if(cbPatientGender.SelectedIndex == 0 || cbDoctorName.SelectedIndex == 0 || cbDoctorDepartment.SelectedIndex == 0){
+                MessageBox.Show("Please don't left selected default value");
+            }
+            else {
             var patient = new Patients();
 
             if (string.IsNullOrEmpty(tbPatientId.Text))
             {
-                patient = new Patients()
-                {
-                    patientId = getLastId(true),
-                    patientCivilizationNumber = Convert.ToInt32(tbPatientCivilizationNumber.Text),
-                    patientName = tbPatientName.Text,
-                    patientSurname = tbPatientSurname.Text,
-                    patientAge = Convert.ToInt32(tbPatientAge.Text),
-                    patientGender = cbPatientGender.Text,
-                    doctorName = cbDoctorName.Text,
-                    doctorDepartment = cbDoctorDepartment.Text,
-                    patientComplaintDescription = tbPatientComplaintDescription.Text,
-                    patientDateTime = dateTimePicker1.Value
-                };
-                //Overloading Patient constructor and set get data in Patient class
-                patientList.Add(patient);         
+                    patient = new Patients()
+                    {
+                        patientId = getLastId(true),
+                        patientCivilizationNumber = Convert.ToInt64(tbPatientCivilizationNumber.Text),
+                        patientName = tbPatientName.Text,
+                        patientSurname = tbPatientSurname.Text,
+                        patientAge = Convert.ToInt32(tbPatientAge.Text),
+                        patientGender = cbPatientGender.Text,
+                        doctorName = cbDoctorName.Text,
+                        doctorDepartment = cbDoctorDepartment.Text,
+                        patientComplaintDescription = tbPatientComplaintDescription.Text,
+                        patientDateTime = dateTimePicker1.Value
+                    };
+                    //Overloading Patient constructor and set get data in Patient class
+                    patientList.Add(patient);
             }
             else
             {
@@ -69,7 +81,7 @@ namespace HospitalAdmissionSystem
                 if (patient != null)
                 {
                     patient.patientId = getLastId(true);
-                    patient.patientCivilizationNumber = Convert.ToInt32(tbPatientCivilizationNumber.Text);
+                    patient.patientCivilizationNumber = Convert.ToInt64(tbPatientCivilizationNumber.Text);
                     patient.patientName = tbPatientName.Text;
                     patient.patientSurname = tbPatientSurname.Text;
                     patient.patientAge = Convert.ToInt32(tbPatientAge.Text);
@@ -84,28 +96,7 @@ namespace HospitalAdmissionSystem
             dgvPatient.DataSource = patientList;
             changeColumnsName();
             formClear();
-        }
-        public void changeColumnsName()//This function change datagridview columns name
-        {
-            dgvPatient.Columns[0].HeaderText = "ID";
-            dgvPatient.Columns[1].HeaderText = "Patient Civilization Number";
-            dgvPatient.Columns[2].HeaderText = "Patient Name";
-            dgvPatient.Columns[3].HeaderText = "Patient Surname";
-            dgvPatient.Columns[4].HeaderText = "Patient Age";
-            dgvPatient.Columns[5].HeaderText = "Patient Gender";
-            dgvPatient.Columns[6].HeaderText = "Patient Dr Name";
-            dgvPatient.Columns[7].HeaderText = "Patient Department";
-            dgvPatient.Columns[8].HeaderText = "Patient Complaint";
-            dgvPatient.Columns[9].HeaderText = "Patient Register Time";
-        } 
-        public void formClear() //This function clear all textbox
-        {
-            tbPatientId.Clear();
-            tbPatientCivilizationNumber.Clear();
-            tbPatientName.Clear();
-            tbPatientSurname.Clear();
-            tbPatientAge.Clear();
-            dateTimePicker1.Value = DateTime.Now;
+            }
         }
         private void dgvPatient_CellDoubleClick(object sender, DataGridViewCellEventArgs e)//When datagridview column select, you can change data with form
         {
@@ -135,20 +126,50 @@ namespace HospitalAdmissionSystem
                 dateTimePicker1.Value = (DateTime)patientDateTime;
             }
         }
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            //cbDoctorDepartment.Text = "Deparman";
-            /* Auto Value Add!
-                Department
-                Gender
-                DrName
-            */
-        }
-
         private void tbPatientCivilizationNumber_TextChanged(object sender, EventArgs e)
         {
             dgvPatient.DataSource = patientList.Where(x => x.patientCivilizationNumber.ToString().Contains(tbPatientCivilizationNumber.Text)).ToList();
             changeColumnsName();
         }
+        private void tbPatientCivilizationNumber_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            tbNumberController(e);
+        }
+        private void tbPatientAge_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            tbNumberController(e);
+        }
+
+        // Different for Textbox, Combobox etc fuction.
+
+        public void changeColumnsName()//This function change datagridview columns name
+        {
+            dgvPatient.Columns[0].HeaderText = "ID";
+            dgvPatient.Columns[1].HeaderText = "Patient Civilization Number";
+            dgvPatient.Columns[2].HeaderText = "Patient Name";
+            dgvPatient.Columns[3].HeaderText = "Patient Surname";
+            dgvPatient.Columns[4].HeaderText = "Patient Age";
+            dgvPatient.Columns[5].HeaderText = "Patient Gender";
+            dgvPatient.Columns[6].HeaderText = "Patient Dr Name";
+            dgvPatient.Columns[7].HeaderText = "Patient Department";
+            dgvPatient.Columns[8].HeaderText = "Patient Complaint";
+            dgvPatient.Columns[9].HeaderText = "Patient Register Time";
+        }
+        public void formClear() //This function clear all textbox
+        {
+            tbPatientId.Clear();
+            tbPatientCivilizationNumber.Clear();
+            tbPatientName.Clear();
+            tbPatientSurname.Clear();
+            tbPatientAge.Clear();
+            dateTimePicker1.Value = DateTime.Now;
+        }
+        private void tbNumberController(KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = !(char.IsDigit(e.KeyChar));
+            }
+        } //this function control it textbox number or not
     }
 }

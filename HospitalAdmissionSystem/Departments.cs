@@ -1,6 +1,12 @@
-﻿namespace HospitalAdmissionSystem
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace HospitalAdmissionSystem
 {
-    internal class DepartmentsBase
+    class Departments
     {
         //Field
         public int departmentId;

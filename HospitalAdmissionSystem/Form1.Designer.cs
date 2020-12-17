@@ -29,6 +29,7 @@ namespace HospitalAdmissionSystem
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lbpatientComplaintDescription = new System.Windows.Forms.Label();
             this.tbPatientComplaintDescription = new System.Windows.Forms.TextBox();
@@ -149,10 +150,13 @@ namespace HospitalAdmissionSystem
             this.tbPatientCivilizationNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbPatientCivilizationNumber.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.tbPatientCivilizationNumber.Location = new System.Drawing.Point(215, 39);
+            this.tbPatientCivilizationNumber.MaxLength = 11;
             this.tbPatientCivilizationNumber.Name = "tbPatientCivilizationNumber";
+            this.tbPatientCivilizationNumber.ShortcutsEnabled = false;
             this.tbPatientCivilizationNumber.Size = new System.Drawing.Size(165, 19);
             this.tbPatientCivilizationNumber.TabIndex = 4;
             this.tbPatientCivilizationNumber.TextChanged += new System.EventHandler(this.tbPatientCivilizationNumber_TextChanged);
+            this.tbPatientCivilizationNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPatientCivilizationNumber_KeyPress);
             // 
             // label1
             // 
@@ -172,15 +176,17 @@ namespace HospitalAdmissionSystem
             this.label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.label3.Location = new System.Drawing.Point(212, 21);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(166, 15);
+            this.label3.Size = new System.Drawing.Size(156, 15);
             this.label3.TabIndex = 3;
-            this.label3.Text = "Patient Identification Number";
+            this.label3.Text = "Patient Civilization Number";
             // 
             // cbDoctorDepartment
             // 
+            this.cbDoctorDepartment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbDoctorDepartment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbDoctorDepartment.FormattingEnabled = true;
             this.cbDoctorDepartment.Items.AddRange(new object[] {
+            "Select",
             "Cardiology",
             "Anesthetics",
             "Breast Screening",
@@ -195,9 +201,11 @@ namespace HospitalAdmissionSystem
             // cbPatientGender
             // 
             this.cbPatientGender.BackColor = System.Drawing.SystemColors.Window;
+            this.cbPatientGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPatientGender.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbPatientGender.FormattingEnabled = true;
             this.cbPatientGender.Items.AddRange(new object[] {
+            "Select",
             "Man",
             "Woman"});
             this.cbPatientGender.Location = new System.Drawing.Point(215, 156);
@@ -231,9 +239,12 @@ namespace HospitalAdmissionSystem
             this.tbPatientAge.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbPatientAge.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.tbPatientAge.Location = new System.Drawing.Point(13, 154);
+            this.tbPatientAge.MaxLength = 3;
             this.tbPatientAge.Name = "tbPatientAge";
+            this.tbPatientAge.ShortcutsEnabled = false;
             this.tbPatientAge.Size = new System.Drawing.Size(165, 19);
             this.tbPatientAge.TabIndex = 10;
+            this.tbPatientAge.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPatientAge_KeyPress);
             // 
             // panel3
             // 
@@ -308,9 +319,11 @@ namespace HospitalAdmissionSystem
             // 
             // cbDoctorName
             // 
+            this.cbDoctorName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbDoctorName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbDoctorName.FormattingEnabled = true;
             this.cbDoctorName.Items.AddRange(new object[] {
+            "Select",
             "Dr. Rahman Çaylak",
             "Dr. John Doe",
             "Dr. Jennifer",
@@ -341,11 +354,11 @@ namespace HospitalAdmissionSystem
             // 
             // buttonRegister
             // 
-            this.buttonRegister.BackColor = System.Drawing.Color.SeaGreen;
+            this.buttonRegister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(92)))), ((int)(((byte)(97)))));
             this.buttonRegister.Cursor = System.Windows.Forms.Cursors.Default;
             this.buttonRegister.FlatAppearance.BorderSize = 0;
             this.buttonRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonRegister.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.buttonRegister.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.buttonRegister.ForeColor = System.Drawing.SystemColors.Control;
             this.buttonRegister.Location = new System.Drawing.Point(215, 319);
             this.buttonRegister.Name = "buttonRegister";
@@ -395,6 +408,7 @@ namespace HospitalAdmissionSystem
             this.Controls.Add(this.dgvPatient);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Hospital Admission System";
             this.Load += new System.EventHandler(this.Form1_Load);

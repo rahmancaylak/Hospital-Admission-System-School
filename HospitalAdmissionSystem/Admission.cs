@@ -10,7 +10,7 @@ namespace HospitalAdmissionSystem
     {
         public int admissionId;
         public int doctorId;
-        public  int departmentId;
+        public int departmentId;
         public new int patientId;
     }
     
