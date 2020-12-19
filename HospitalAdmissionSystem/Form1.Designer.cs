@@ -38,7 +38,7 @@ namespace HospitalAdmissionSystem
             this.panel5 = new System.Windows.Forms.Panel();
             this.tbPatientCivilizationNumber = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lbPatientCivilizationNumber = new System.Windows.Forms.Label();
             this.cbDoctorDepartment = new System.Windows.Forms.ComboBox();
             this.cbPatientGender = new System.Windows.Forms.ComboBox();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -71,7 +71,7 @@ namespace HospitalAdmissionSystem
             this.groupBox1.Controls.Add(this.panel5);
             this.groupBox1.Controls.Add(this.tbPatientCivilizationNumber);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.lbPatientCivilizationNumber);
             this.groupBox1.Controls.Add(this.cbDoctorDepartment);
             this.groupBox1.Controls.Add(this.cbPatientGender);
             this.groupBox1.Controls.Add(this.panel4);
@@ -169,16 +169,16 @@ namespace HospitalAdmissionSystem
             this.label1.TabIndex = 15;
             this.label1.Text = "Department";
             // 
-            // label3
+            // lbPatientCivilizationNumber
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label3.Location = new System.Drawing.Point(212, 21);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(156, 15);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Patient Civilization Number";
+            this.lbPatientCivilizationNumber.AutoSize = true;
+            this.lbPatientCivilizationNumber.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbPatientCivilizationNumber.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.lbPatientCivilizationNumber.Location = new System.Drawing.Point(212, 21);
+            this.lbPatientCivilizationNumber.Name = "lbPatientCivilizationNumber";
+            this.lbPatientCivilizationNumber.Size = new System.Drawing.Size(115, 15);
+            this.lbPatientCivilizationNumber.TabIndex = 3;
+            this.lbPatientCivilizationNumber.Text = "Civilization Number";
             // 
             // cbDoctorDepartment
             // 
@@ -284,9 +284,9 @@ namespace HospitalAdmissionSystem
             this.lbPatientId.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.lbPatientId.Location = new System.Drawing.Point(9, 21);
             this.lbPatientId.Name = "lbPatientId";
-            this.lbPatientId.Size = new System.Drawing.Size(60, 15);
+            this.lbPatientId.Size = new System.Drawing.Size(19, 15);
             this.lbPatientId.TabIndex = 1;
-            this.lbPatientId.Text = "Patient ID";
+            this.lbPatientId.Text = "ID";
             // 
             // label2
             // 
@@ -325,9 +325,17 @@ namespace HospitalAdmissionSystem
             this.cbDoctorName.Items.AddRange(new object[] {
             "Select",
             "Dr. Rahman Çaylak",
-            "Dr. John Doe",
-            "Dr. Jennifer",
-            "Dr. Adam"});
+            "Dr. John Smith",
+            "Dr. Larisa Bonomo",
+            "Dr. Rob Consolini",
+            "Dr. Sheena Malbon",
+            "Dr. Tony Ogrady",
+            "Dr. Charles Baynes",
+            "Dr. Weston Breit",
+            "Dr. Mack Cumberland",
+            "Dr. Alma Herron",
+            "Dr. Danette Peet",
+            "Dr. Ileana Chaudhry"});
             this.cbDoctorName.Location = new System.Drawing.Point(13, 217);
             this.cbDoctorName.Name = "cbDoctorName";
             this.cbDoctorName.Size = new System.Drawing.Size(165, 21);
@@ -391,12 +399,15 @@ namespace HospitalAdmissionSystem
             // 
             // dgvPatient
             // 
+            this.dgvPatient.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvPatient.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
             this.dgvPatient.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvPatient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPatient.Location = new System.Drawing.Point(415, 26);
+            this.dgvPatient.Location = new System.Drawing.Point(427, 0);
             this.dgvPatient.Name = "dgvPatient";
             this.dgvPatient.ReadOnly = true;
-            this.dgvPatient.Size = new System.Drawing.Size(763, 413);
+            this.dgvPatient.Size = new System.Drawing.Size(763, 451);
             this.dgvPatient.TabIndex = 1;
             this.dgvPatient.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPatient_CellDoubleClick);
             // 
@@ -409,6 +420,7 @@ namespace HospitalAdmissionSystem
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Hospital Admission System";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -442,7 +454,7 @@ namespace HospitalAdmissionSystem
         private System.Windows.Forms.ComboBox cbDoctorDepartment;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.TextBox tbPatientCivilizationNumber;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbPatientCivilizationNumber;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.ComboBox cbPatientGender;
         private System.Windows.Forms.Label label4;
