@@ -34,7 +34,7 @@ namespace HospitalAdmissionSystem
             this.lbpatientComplaintDescription = new System.Windows.Forms.Label();
             this.tbPatientComplaintDescription = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpRegisterDate = new System.Windows.Forms.DateTimePicker();
             this.panel5 = new System.Windows.Forms.Panel();
             this.tbPatientCivilizationNumber = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -67,7 +67,7 @@ namespace HospitalAdmissionSystem
             this.groupBox1.Controls.Add(this.lbpatientComplaintDescription);
             this.groupBox1.Controls.Add(this.tbPatientComplaintDescription);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
+            this.groupBox1.Controls.Add(this.dtpRegisterDate);
             this.groupBox1.Controls.Add(this.panel5);
             this.groupBox1.Controls.Add(this.tbPatientCivilizationNumber);
             this.groupBox1.Controls.Add(this.label1);
@@ -129,12 +129,12 @@ namespace HospitalAdmissionSystem
             this.label4.TabIndex = 19;
             this.label4.Text = "Register Date";
             // 
-            // dateTimePicker1
+            // dtpRegisterDate
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(215, 278);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(171, 20);
-            this.dateTimePicker1.TabIndex = 20;
+            this.dtpRegisterDate.Location = new System.Drawing.Point(215, 278);
+            this.dtpRegisterDate.Name = "dtpRegisterDate";
+            this.dtpRegisterDate.Size = new System.Drawing.Size(171, 20);
+            this.dtpRegisterDate.TabIndex = 20;
             // 
             // panel5
             // 
@@ -155,7 +155,6 @@ namespace HospitalAdmissionSystem
             this.tbPatientCivilizationNumber.ShortcutsEnabled = false;
             this.tbPatientCivilizationNumber.Size = new System.Drawing.Size(165, 19);
             this.tbPatientCivilizationNumber.TabIndex = 4;
-            this.tbPatientCivilizationNumber.TextChanged += new System.EventHandler(this.tbPatientCivilizationNumber_TextChanged);
             this.tbPatientCivilizationNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPatientCivilizationNumber_KeyPress);
             // 
             // label1
@@ -186,13 +185,7 @@ namespace HospitalAdmissionSystem
             this.cbDoctorDepartment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbDoctorDepartment.FormattingEnabled = true;
             this.cbDoctorDepartment.Items.AddRange(new object[] {
-            "Select",
-            "Cardiology",
-            "Anesthetics",
-            "Breast Screening",
-            "Ear, nose and throat (ENT)",
-            "Elderly Services",
-            "Gynecology"});
+            "Select"});
             this.cbDoctorDepartment.Location = new System.Drawing.Point(215, 217);
             this.cbDoctorDepartment.Name = "cbDoctorDepartment";
             this.cbDoctorDepartment.Size = new System.Drawing.Size(165, 21);
@@ -206,8 +199,8 @@ namespace HospitalAdmissionSystem
             this.cbPatientGender.FormattingEnabled = true;
             this.cbPatientGender.Items.AddRange(new object[] {
             "Select",
-            "Man",
-            "Woman"});
+            "Male",
+            "Female"});
             this.cbPatientGender.Location = new System.Drawing.Point(215, 156);
             this.cbPatientGender.Name = "cbPatientGender";
             this.cbPatientGender.Size = new System.Drawing.Size(165, 21);
@@ -323,19 +316,7 @@ namespace HospitalAdmissionSystem
             this.cbDoctorName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbDoctorName.FormattingEnabled = true;
             this.cbDoctorName.Items.AddRange(new object[] {
-            "Select",
-            "Dr. Rahman Çaylak",
-            "Dr. John Smith",
-            "Dr. Larisa Bonomo",
-            "Dr. Rob Consolini",
-            "Dr. Sheena Malbon",
-            "Dr. Tony Ogrady",
-            "Dr. Charles Baynes",
-            "Dr. Weston Breit",
-            "Dr. Mack Cumberland",
-            "Dr. Alma Herron",
-            "Dr. Danette Peet",
-            "Dr. Ileana Chaudhry"});
+            "Select"});
             this.cbDoctorName.Location = new System.Drawing.Point(13, 217);
             this.cbDoctorName.Name = "cbDoctorName";
             this.cbDoctorName.Size = new System.Drawing.Size(165, 21);
@@ -455,7 +436,7 @@ namespace HospitalAdmissionSystem
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.TextBox tbPatientCivilizationNumber;
         private System.Windows.Forms.Label lbPatientCivilizationNumber;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpRegisterDate;
         private System.Windows.Forms.ComboBox cbPatientGender;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lbpatientComplaintDescription;
