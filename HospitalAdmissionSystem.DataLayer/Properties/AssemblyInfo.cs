@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("HospitalAdmissionSystem")]
+[assembly: AssemblyTitle("HospitalAdmissionSystem.DataLayer")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("HospitalAdmissionSystem")]
+[assembly: AssemblyProduct("HospitalAdmissionSystem.DataLayer")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("fdfc0b00-b06f-4f94-b27f-b2a3fdc81a78")]
+[assembly: Guid("a525152d-5808-4b9d-ba49-105d472088b1")]
 
 // Version information for an assembly consists of the following four values:
 //
